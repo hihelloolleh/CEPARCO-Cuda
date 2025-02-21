@@ -13,5 +13,12 @@ Shared memory is an operating-system feature that allows database server threads
 | Cuda C w/ shared memory | 9.512620 ms | <img width="1344" alt="Screenshot 2025-02-21 at 7 09 03 PM" src="https://github.com/user-attachments/assets/eb3c0d84-ac1b-4dc0-87ca-efaf754fd322" /> |
 | Cuda C w/o shared memory | 9.852160 ms | <img width="1345" alt="Screenshot 2025-02-21 at 7 11 07 PM" src="https://github.com/user-attachments/assets/2f556c9d-dcda-4612-ad61-64d0d6ed2267" /> |
 
+# Discussion
+The table presents the execution times of different implementations of the SAXPY operation, comparing performance between CPU-based execution in C and various CUDA-based implementations leveraging GPU parallelism. The results demonstrate the significant speedup achieved by utilizing CUDA, particularly with shared memory optimization.
 
+## Analysis of Execution Times
+  The **C Implementation** records an average execution time of **1,099,821.3 ms**, which is significantly higher than any of the CUDA implementations. This vast difference highlights the limitations of CPU-based execution when handling large vector computations in a sequential manner.
 
+  The execution time for **CUDA without shared memory** is **12.442811 ms**, showcasing a dramatic improvement over the serial C execution. This speedup is attributed to the parallel processing capabilities of the GPU, where multiple threads process vector elements concurrently. On the other hand, the execution time for **CUDA with shared memory** is further reduced to **12.005183 ms**. The marginal improvement indicates that, for this specific SAXPY operation, global memory access is already optimized, and shared memory does not provide substantial additional benefits.
+
+  For **CUDA C implementation**, using *shared memory* achieves the fastest execution time of **9.512620 ms**. This suggests that optimizations at both the memory access level and computational efficiency have been effectively implemented. **Without the shared memory**, the execution time is **9.852160 ms**, slightly slower than the shared memory variant. This difference indicates that shared memory provides some advantage, but the impact is relatively minor in this particular case.
