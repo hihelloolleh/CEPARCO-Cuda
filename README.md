@@ -2,6 +2,9 @@
 
 Shared memory is an operating-system feature that allows database server threads and processes to share data efficiently by providing access to common memory pools. This feature enhances system performance by reducing memory usage and disk I/O while enabling high-speed communication between processes (IBM, 2023). 
 
+## Check if CUDA is present
+<img width="1147" alt="Screenshot 2025-02-21 at 9 44 48 PM" src="https://github.com/user-attachments/assets/11c9dd58-db27-409e-972e-99f90cbb711d" />
+
 # Comparative table of execution times
 
 ## Avg time for 30 loop
@@ -19,7 +22,7 @@ The table presents the execution times of different implementations of the SAXPY
 ## Analysis of Execution Times
   The **C Implementation** records an average execution time of **1,099,821.3 ms**, which is significantly higher than any of the CUDA implementations. This vast difference highlights the limitations of CPU-based execution when handling large vector computations in a sequential manner.
 
-  The execution time for **CUDA without shared memory** is **12.442811 ms**, showcasing a dramatic improvement over the serial C execution. This speedup is attributed to the parallel processing capabilities of the GPU, where multiple threads process vector elements concurrently. On the other hand, the execution time for **CUDA with shared memory** is further reduced to **12.005183 ms**. The marginal improvement indicates that, for this specific SAXPY operation, global memory access is already optimized, and shared memory does not provide substantial additional benefits.
+  The execution time for **CUDA without shared memory** is **12.442811 ms**, showcasing a dramatic improvement over the serial C execution. This speedup is attributed to the parallel processing capabilities of the GPU, where multiple threads process vector elements concurrently. On the other hand, the execution time for **CUDA with shared memory** is further reduced to **12.005183 ms**. The marginal improvement indicates that, for this specific operation, global memory access is already optimized, and shared memory does not provide substantial additional benefits.
 
   For **CUDA C implementation**, using *shared memory* achieves the fastest execution time of **9.512620 ms**. This suggests that optimizations at both the memory access level and computational efficiency have been effectively implemented. **Without the shared memory**, the execution time is **9.852160 ms**, slightly slower than the shared memory variant. This difference indicates that shared memory provides some advantage, but the impact is relatively minor in this particular case.
 
