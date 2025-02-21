@@ -1,4 +1,5 @@
-#Overview
+[Youtube Link] (https://youtu.be/bXDDBPPE9Ho)
+[Colab] (https://colab.research.google.com/drive/1cOsu8Wu5qaSVcEg7zTNYJu8o2hs9gwQq#scrollTo=cbdwazgdzfke)
 
 Shared memory is an operating-system feature that allows database server threads and processes to share data efficiently by providing access to common memory pools. This feature enhances system performance by reducing memory usage and disk I/O while enabling high-speed communication between processes (IBM, 2023). 
 
